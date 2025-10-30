@@ -1,0 +1,208 @@
+:root {
+    --primary-purple: #7c3aed;
+    --dark-purple: #6d32cc;
+    --light-purple: #a78bfa;
+    --lighter-purple: #ddd6fe;
+    --white: #ffffff;
+    --black: #000000;
+    --gray-light: #f3f4f6;
+    --gray-dark: #374151;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 50%, var(--light-purple) 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transform: translateY(-10vh); 
+}
+
+/* When body has .login-lock (login screen) disable scrolling */
+body.login-lock {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+@media (max-width: 576px) {
+    .login-page {
+        transform: translateY(-6vh);
+        padding: 20px 0;
+    }
+}
+
+.login-container {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    max-width: 450px;
+    width: 100%;
+}
+
+.login-header {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    padding: 40px 30px;
+    text-align: center;
+    color: var(--white);
+}
+
+.login-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.login-body {
+    padding: 40px 30px;
+}
+
+.form-label {
+    color: var(--gray-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border: 2px solid var(--lighter-purple);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 0.2rem --dark-purple(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.btn-login {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.d-flex {
+    padding-left: 10px;
+}
+
+.navbar-custom {
+  position: fixed;               
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(102, 51, 255, 0.6); 
+  backdrop-filter: blur(10px);        
+  -webkit-backdrop-filter: blur(10px); 
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+
+body {
+  padding-top: 80px;
+}
+
+
+.navbar-custom .nav-link {
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+  color: var(--lighter-purple);
+}
+
+.btn-custom {
+  background-color: var(--light-purple);
+  color: var(--white);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: var(--dark-purple);
+  transform: scale(1.05);
+}
+
+.nav-link {
+    margin-right: 5px;
+}
+
+.nav-link:hover{
+    border-bottom: var(--white) 2px solid;
+}
+
+.btn-formulario{
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-formulario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+    color: var(--white);
+}
+
+.btn{
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.valor {
+    font-size: 1.3m;
+    color: red;
+    font-weight: bold;
+}
