@@ -1,11 +1,11 @@
 <?php
 
-$urlProduto = "http://localhost/show-de-feira/public/apis/produto.php?id={$id}";
+$urlProduto = "http://localhost/techacademy4/public/apis/produto.php?id={$id}";
 $dadosProduto = json_decode(file_get_contents($urlProduto));
 
 ?>
 
-<div class="card">
+<div class="card" style="margin-top: 40px;">
     <div class="card-header">
         <?php
         if (empty($dadosProduto->id)) {
@@ -28,7 +28,7 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
                     R$ <?=number_format($dadosProduto->valor, 2, ",", ".")?>
                 </p>
                 <p class="float-end">
-                    <a href="carrinho/adicionar/<?=$dadosProduto->id?>" class="btn btn-success">
+                    <a href="carrinho/adicionar/<?=$dadosProduto->id?>" class="btn btn-formulario">
                         <i class="fas fa-plus"></i> Adicionar ao carrinho
                     </a>
                 </p>

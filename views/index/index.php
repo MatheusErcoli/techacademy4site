@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card" style="margin-top: 40px;">
     <div class="card-header">
         <h2>Produtos em destaque</h2>
     </div>
     <div class="card-body">
         <div class="row">
             <?php
-                $urlProduto = "http://localhost/techacademy-4/public/apis/produto.php";
+                $urlProduto = "http://localhost/techacademy4/public/apis/produto.php";
                 $dadosProduto = json_decode(file_get_contents($urlProduto));
                 foreach ($dadosProduto as $dados) {
                     ?>
@@ -16,7 +16,7 @@
                                 <strong><?=$dados->nome?></strong>
                             </p>
                             <p>
-                                <a href="produto/detalhes/<?=$dados->id?>" class="btn btn-success">
+                                <a href="produto/detalhes/<?=$dados->id?>" class="btn btn-formulario">
                                     <i class="fas fa-search"></i> Detalhes do produto
                                 </a>
                             </p>
@@ -27,7 +27,7 @@
             ?>
         </div>
         <p class="text-center">
-            <a href="produtos/index" class="btn btn-success btn-lg">
+            <a href="produtos/index" class="btn btn-formulario btn-lg" style="margin-top: 10px;">
                 <i class="fas fa-search"></i> Ver todos os produtos
             </a>
         </p>
