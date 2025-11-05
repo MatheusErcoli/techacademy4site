@@ -1,5 +1,4 @@
 <?php
-
 $urlProduto = "http://localhost/techacademy4/public/apis/produto.php?id={$id}";
 $dadosProduto = json_decode(file_get_contents($urlProduto));
 
@@ -8,7 +7,7 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
 <div class="card" style="margin-top: 40px;">
     <div class="card-header">
         <?php
-        if (empty($dadosProduto->id)) {
+        if (empty($dadosProduto->id_produto)) {
             echo "<h2>Produto inválido!</h2>";
         } else {
             echo "<h2>{$dadosProduto->nome}</h2>";

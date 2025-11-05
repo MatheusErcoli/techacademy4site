@@ -16,7 +16,7 @@
                                 <strong><?=$dados->nome?></strong>
                             </p>
                             <p>
-                                <a href="produto/detalhes/<?=$dados->id?>" class="btn btn-formulario">
+                                <a href="produto/detalhes/<?=$dados->id_produto?>" class="btn btn-formulario">
                                     <i class="fas fa-search"></i> Detalhes do produto
                                 </a>
                             </p>
