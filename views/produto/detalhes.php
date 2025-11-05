@@ -27,7 +27,7 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
                     R$ <?=number_format($dadosProduto->valor, 2, ",", ".")?>
                 </p>
                 <p class="float-end">
-                    <a href="carrinho/adicionar/<?=$dadosProduto->id?>" class="btn btn-formulario">
+                    <a href="carrinho/adicionar/<?=$dadosProduto->id_produto?>" class="btn btn-formulario">
                         <i class="fas fa-plus"></i> Adicionar ao carrinho
                     </a>
                 </p>
