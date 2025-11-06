@@ -25,7 +25,7 @@
                         <td><img src="<?=$img?><?=$dados["imagem"]?>" alt="<?=$dados["nome"]?>" width="130px"></td>
                         <td><?=$dados["nome"]?></td>
                         <td>
-                            <input type="number" value="<?=$dados["qtde"]?>" class="form-control" onblur="somarQuantidade(this.valor, <?=$dados['id']?>">
+                            <input type="number" value="<?=$dados["qtde"]?>" class="form-control" onblur="somarQuantidade(this.value, <?=$dados['id']?>)">
                         </td>
                         <td><span style="font-size: 18px; font-weight: bold;">R$ <?=number_format($dados["valor"],2,",",".")?></span></td>
                         <td><span style="font-size: 18px; font-weight: bold;">R$ <?=number_format($dados["valor"] * $dados["qtde"],2,",",".")?></span></td>
@@ -57,9 +57,18 @@
 </div>
 <script>
     somarQuantidade = function(qtde, id){
-        $.get("somar.php", {qtde: qtde, id: id},function(dados){
-            if (dados == "") window.location.reload();
-            else alert(dados);
-        })
+        $.get("somar.php", {qtde: qtde, id: id}, function(dados){
+            if (dados.includes("inválido")) {
+                alert(dados);
+            } else {
+                // Atualiza o valor total do item
+                const valorUnitario = parseFloat($('tr').find(`input[onblur*="${id}"]`).closest('tr').find('td:eq(3)').text().replace('R$ ', '').replace('.', '').replace(',', '.'));
+                const novoTotalItem = valorUnitario * qtde;
+                $('tr').find(`input[onblur*="${id}"]`).closest('tr').find('td:eq(4) span').text('R$ ' + novoTotalItem.toLocaleString('pt-BR', {minimumFractionDigits: 2}));
+                
+                // Atualiza o valor total do carrinho
+                $('.valor').text('R$ ' + dados);
+            }
+        });
     }
 </script>

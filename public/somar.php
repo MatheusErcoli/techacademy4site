@@ -14,5 +14,13 @@
     } else {
         $_SESSION["carrinho"][$id]["qtde"] = $qtde;
         
+       
+        $total = 0;
+        foreach ($_SESSION['carrinho'] as $dados) {
+            $total += $dados["valor"] * $dados["qtde"];
+        }
+        
+       
+        echo number_format($total, 2, ",", ".");
     }
 ?>
