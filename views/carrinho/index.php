@@ -27,8 +27,8 @@
                         <td>
                             <input type="number" value="<?=$dados["qtde"]?>" class="form-control" onblur="somarQuantidade(this.valor, <?=$dados['id']?>">
                         </td>
-                        <td><?=number_format($dados["valor"],2,",",".")?></td>
-                        <td><?=number_format($dados["valor"] * $dados["qtde"],2,",",".")?></td>
+                        <td><span style="font-size: 18px; font-weight: bold;">R$ <?=number_format($dados["valor"],2,",",".")?></span></td>
+                        <td><span style="font-size: 18px; font-weight: bold;">R$ <?=number_format($dados["valor"] * $dados["qtde"],2,",",".")?></span></td>
                         <td>
                             <a href="carrinho/excluir/<?=$dados["id"]?>" class="btn btn-danger">
                                 <i class="fas fa-trash"></i> Excluir
@@ -50,7 +50,7 @@
                 Finalizar Compra
             </a>
         </p>
-        <p class="float-end valor">
+        <p class="float-end valor" style="font-size: 24px; font-weight: bold;">
             R$ <?=number_format($total,2,",",".")?>
         </p>
     </div>

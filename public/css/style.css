@@ -22,6 +22,31 @@ body {
     padding: 20px;
 }
 
+/* Correções do Dropdown */
+.dropdown-menu {
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 100%;
+    min-width: 150px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 8px !important;
+    /* pequeno ajuste inicial: tira um pouco para a esquerda */
+    transform: translateX(-10px);
+}
+
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu.show {
+    display: block;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
 
 .login-page {
     display: flex;
