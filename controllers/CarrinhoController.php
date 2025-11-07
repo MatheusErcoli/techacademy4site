@@ -1,6 +1,17 @@
 <?php
-
+    require_once "../config/Conexao.php";
+    require_once "../models/Carrinho.php";
 class CarrinhoController {
+
+    private $pdo;
+    private $carrinho;
+
+    public function __construct() {
+        $db = new Conexao();
+        $pdo = $db->conectar();
+        $this->pdo = $pdo;
+        $this->carrinho = new Carrinho($pdo);
+    }
     public function index($id, $img){
         require "../views/carrinho/index.php";
     }
@@ -17,5 +28,20 @@ class CarrinhoController {
     public function limpar(){
         unset($_SESSION['carrinho']);
         require "../views/carrinho/index.php";
+    }
+
+    public function finalizar(){
+        if(isset($_SESSION["cliente"]["id"])){
+        require "../views/carrinho/salvar.php";
+        } else {
+            require "../views/carrinho/login.php"; 
+        }
+    }
+
+    public function cadastrar(){
+        require "../views/carrinho/cadastrar.php";
+    }
+    public function cadastro(){
+        require "../views/carrinho/cadastro.php";
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require "../config/Conexao.php";
+require_once "../config/Conexao.php";
 session_start();
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,19 @@ session_start();
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
+    <script src="js/parsley.min.js"></script>
 </head>
+<script>
+   mensagem = function(msg, url, icone) {
+            Swal.fire({
+                icon: icone,
+                title: msg,
+                confirmButtonText: 'OK',
+            }).then((result) => {
+                location.href = url;
+            });
+        }
+</script>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
