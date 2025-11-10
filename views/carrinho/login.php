@@ -18,8 +18,10 @@
                 <button class="btn btn-outline-secondary" type="button" onclick="mostrarSenha()"><i class="fas fa-eye"></i></button>
             </div>
             <br>
-            <a href="carrinho/cadastro" class="text-center">Não tenho cadastro</a>
             <button type="submit" class="btn btn-login">Entrar</button>
+            <div class="text-center mt-3">
+                <a href="carrinho/cadastro" class="link-secondary text-decoration-none">Não tenho cadastro</a>
+            </div>
         </form>
     </div>
     </div>
