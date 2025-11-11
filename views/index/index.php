@@ -5,31 +5,37 @@
     <div class="card-body">
         <div class="row">
             <?php
-                $urlProduto = "http://localhost/techacademy4/public/apis/produto.php";
-                $dadosProduto = json_decode(file_get_contents($urlProduto));
-                foreach ($dadosProduto as $dados) {
-                    ?>
+            $urlProduto = "http://localhost/techacademy4/public/apis/produto.php";
+            $dadosProduto = json_decode(file_get_contents($urlProduto));
+            foreach ($dadosProduto as $dados) {
+                if ($dados->destaque == 1 && $dados->ativo == 1) {
+            ?>
                     <div class="col-12 col-md-3">
                         <div class="card text-center">
-                            <img src="<?=$img?><?=$dados->imagem?>" alt="<?=$dados->nome?>">
+                            <img src="<?= $img ?><?= $dados->imagem ?>" alt="<?= $dados->nome ?>">
                             <p>
-                                <strong><?=$dados->nome?></strong>
+                                <strong><?= $dados->nome ?></strong>
+                            <p class="card-text mb-4">R$ <?= number_format($dados->valor, 2, ",", ".") ?></p>
                             </p>
                             <p>
-                                <a href="produto/detalhes/<?=$dados->id_produto?>" class="btn btn-formulario">
+                                <a href="produto/detalhes/<?= $dados->id_produto ?>" class="btn btn-formulario">
                                     <i class="fas fa-search"></i> Detalhes do produto
                                 </a>
                             </p>
                         </div>
                     </div>
-                    <?php
+            <?php
+                } else {
                 }
+            }
             ?>
         </div>
         <p class="text-center">
-            <a href="produtos/index" class="btn btn-formulario btn-lg" style="margin-top: 10px;">
+            <a href="produto/index" class="btn btn-formulario btn-lg" style="margin-top: 10px;">
                 <i class="fas fa-search"></i> Ver todos os produtos
             </a>
         </p>
     </div>
+</div>
+</div>
 </div>

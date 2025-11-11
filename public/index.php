@@ -50,6 +50,7 @@ session_start();
             Produtos
           </a>
           <ul class="dropdown-menu">
+            <li><a href="produto/index" class="dropdown-item">Todos</a></li>
       <?php
         // Carregamento mínimo e seguro: evita avisos se a API estiver ausente ou retornar JSON inválido.
         $urlCategoria = "http://localhost/techAcademy4/public/apis/categoria.php";
@@ -63,7 +64,7 @@ session_start();
             $nomeCategoria = $categoria->nome ?? $categoria->descricao ?? 'Categoria';
             $idCategoriaEsc = htmlspecialchars((string)$idCategoria, ENT_QUOTES);
             $nomeCategoriaEsc = htmlspecialchars((string)$nomeCategoria, ENT_QUOTES);
-            echo "<li><a class='dropdown-item' href='produto/categoria/{$idCategoriaEsc}'>{$nomeCategoriaEsc}</a></li>";
+            echo "<li><a class='dropdown-item' href='categoria/index/$categoria->id_categoria'>{$nomeCategoriaEsc}</a></li>";
           }
         }
       ?>
