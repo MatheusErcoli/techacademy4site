@@ -14,9 +14,15 @@
             </div>
             <label for="password" class="form-label">Senha</label>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required data-parsley-required-message="Por favor, insira sua senha." data-parsley-errors-container="#erro">
-                <button class="btn btn-outline-secondary" type="button" onclick="mostrarSenha()"><i class="fas fa-eye"></i></button>
-            </div>
+    <input type="password" class="form-control" id="cli_senha" name="senha" placeholder="Digite sua senha" 
+           required 
+           data-parsley-required-message="Por favor, insira sua senha."
+           data-parsley-minlength="6"
+           data-parsley-minlength-message="A senha deve ter no mínimo 6 caracteres."
+           data-parsley-errors-container="#erro-container-senha"> <button class="btn btn-outline-secondary" type="button" onclick="mostrarSenha()"><i class="fas fa-eye"></i></button>
+</div>
+
+<div id="erro-container-senha"></div>
             <br>
             <button type="submit" class="btn btn-login">Entrar</button>
             <div class="text-center mt-3">
@@ -26,3 +32,18 @@
     </div>
     </div>
 </div>
+
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/jquery.inputmask.min.js"></script>
+<script src="js/parsley.min.js"></script>
+<script>
+     function mostrarSenha() {
+            const campoSenha = document.getElementById("cli_senha"); 
+            if (campoSenha.type === "password") {
+                campoSenha.type = "text";
+            } else {
+                campoSenha.type = "password";
+            }
+        }
+</script>
