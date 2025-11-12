@@ -1,8 +1,8 @@
-<div class="login-page" style="margin-top: 100px;">
-    <div class="login-container">
+<div class="login-page" style="margin-top: 120px;">
+    <div class="cadastro-container">
         <div class="login-header">
             <h1>Bem-vindo</h1>
-            <p>Cadastre-se</p>
+            <p>Cadastre-se no nosso site!</p>
         </div>
 
         <div class="login-body">

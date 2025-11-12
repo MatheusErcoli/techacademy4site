@@ -29,6 +29,21 @@ class Carrinho {
             $consultaCliente->bindParam(":telefone", $dados['telefone']);
             $consultaCliente->bindParam(":senha", $senha);
             $consultaCliente->execute();
+
+            $idCliente = $this->pdo->lastInsertId();
+
+            $sqlEndereco = "insert into endereco (id_cliente, cep, endereco, numero, complemento, bairro, cidade, estado) values (:id_cliente, :cep, :endereco, :numero, :complemento, :bairro, :cidade, :estado)";
+            $consultaEndereco = $this->pdo->prepare($sqlEndereco);
+            $consultaEndereco->bindParam(":id_cliente", $idCliente);
+            $consultaEndereco->bindParam(":cep", $dados['cep']);
+            $consultaEndereco->bindParam(":endereco", $dados['endereco']);
+            $consultaEndereco->bindParam(":numero", $dados['numero']);
+            $consultaEndereco->bindParam(":complemento", $dados['complemento']);
+            $consultaEndereco->bindParam(":bairro", $dados['bairro']);
+            $consultaEndereco->bindParam(":cidade", $dados['cidade']);
+            $consultaEndereco->bindParam(":estado", $dados['estado']);
+            $consultaEndereco->execute();
+
         } else {
             return 2; // email já cadastrado
         }

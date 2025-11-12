@@ -76,11 +76,19 @@ body.login-lock {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 
+    width: 100%;          
+    width: 450px;    
+}
+.cadastro-container {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
     width: 90%;          
     max-width: 850px;    
     min-width: 400px;    
 }
-
 
 .login-header {
     background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
