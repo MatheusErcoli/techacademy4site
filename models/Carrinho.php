@@ -48,5 +48,13 @@ class Carrinho {
             return 2; // email já cadastrado
         }
     }
+    public function logar($email){
+        $sql = "select * from cliente where email = :email limit 1";
+        $consulta = $this->pdo->prepare($sql);
+        $consulta->bindParam(":email", $email);
+        $consulta->execute();
+
+        return $consulta->fetch(PDO::FETCH_OBJ);
+    }
 
 }

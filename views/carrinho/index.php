@@ -8,7 +8,14 @@ $urlSomar = $protocolo . '://' . $servidor . $diretorioScript . '/somar.php';
 ?>
 <div class="card" style="margin-top: 40px;">
     <div class="card-header">
+        <div class="float-start">
         <h2>Carrinho de Compras</h2>
+        </div>
+        <?php
+         if(isset($_SESSION["cliente"]["id"])){
+            echo "<div class='float-end'><h5 class='text-center'>Olá, {$_SESSION["clientelogado"]["nome"]}! - <a href='carrinho/sair' class='btn btn-danger'>Sair</a></h5></div>";
+         }
+        ?>
     </div>
     <div class="card-body">
         <table class="table table-bordered table-striped">
