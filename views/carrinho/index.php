@@ -13,7 +13,7 @@ $urlSomar = $protocolo . '://' . $servidor . $diretorioScript . '/somar.php';
         </div>
         <?php
          if(isset($_SESSION["cliente"]["id"])){
-            echo "<div class='float-end'><h5 class='text-center'>Olá, {$_SESSION["clientelogado"]["nome"]}! - <a href='carrinho/sair' class='btn btn-danger'>Sair</a></h5></div>";
+            echo "<div class='float-end'><h5 class='text-center'>Olá, {$_SESSION["cliente"]["nome"]}! - <a href='carrinho/sair' class='btn btn-danger'>Sair</a></h5></div>";
          }
         ?>
     </div>

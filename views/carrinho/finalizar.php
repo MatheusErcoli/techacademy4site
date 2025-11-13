@@ -47,8 +47,6 @@ $preference->notification_url = "https://www.techacademy-4-site.com.br/meli/noti
 $preference->auto_return = "approved"; // Retorno automático quando aprovado
 
 $preference->save();
-
-
 ?>
 <div class="card mt-5">
     <div class="card-header text-center">
@@ -64,3 +62,11 @@ $preference->save();
         </p>
     </div>
 </div>
+<?php 
+$msg = $this->carrinho->salvarPedido($preference->id);
+
+if($msg == 0){
+    echo "<script>alert('Erro ao salvar pedido!');history.back();</script>";
+    exit;
+}
+?>

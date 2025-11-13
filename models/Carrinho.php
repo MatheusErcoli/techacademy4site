@@ -57,4 +57,33 @@ class Carrinho {
         return $consulta->fetch(PDO::FETCH_OBJ);
     }
 
+    public function salvarPedido($preference_id){
+        $sqlPedido = "insert into pedido values (null, :id_cliente, null, now(), :preference_id)";
+        $consulta = $this->pdo->prepare($sqlPedido);
+        $consulta->bindParam(":id_cliente", $_SESSION["cliente"]["id"]);
+        $consulta->bindParam(":preference_id", $preference_id);
+
+        if($consulta->execute()){
+            
+            $id_pedido = $this->pdo->lastInsertId();
+
+            foreach($_SESSION["carrinho"] as $produto){
+                $sqlItem = "insert into itempedido values (null, :id_pedido, :id_produto, :quantidade, :preco_unitario)";
+                $consultaItem = $this->pdo->prepare($sqlItem);
+                $consultaItem->bindParam(":id_pedido", $id_pedido);
+                $consultaItem->bindParam(":id_produto", $produto["id"]);
+                $consultaItem->bindParam(":quantidade", $produto["qtde"]);
+                $consultaItem->bindParam(":preco_unitario", $produto["valor"]);
+                $consultaItem->execute();
+
+                if(!$consultaItem->execute()){
+                    return 0; // erro ao salvar item do pedido
+                }
+            }
+            unset($_SESSION["carrinho"]);
+            return 1; // pedido salvo com sucesso
+        } else {
+            return 0; 
+        }
+    }
 }

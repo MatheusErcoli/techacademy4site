@@ -72,6 +72,33 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="carrinho"><i class="fas fa-shopping-cart"></i></a>
         </li>
+
+        <?php 
+          if(isset($_SESSION["cliente"])){
+            ?>
+            <li class="nav-item">
+              <a href="pedidos" class="nav-link">
+                <i class="fas fa-gift"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="carrinho/sair" class="nav-link">
+                <i class="fas fa-power-off"></i>
+              </a>
+            </li>
+
+            <?php 
+          }else{
+            ?>
+            <li class="nav-item">
+              <a href="carrinho/finalizar" class="nav-link">
+                <i class="fas fa-user"></i>
+              </a>
+            </li>
+            <?php 
+          }
+        ?>
+
       </ul>
     </div>
   </div>

@@ -50,7 +50,7 @@ class CarrinhoController {
     }
 
     public function sair($id, $img){
-        unset($_SESSION["clientelogado"]);
+        unset($_SESSION["cliente"]);
         require "../views/carrinho/index.php";
 }
 }
