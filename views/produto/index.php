@@ -1,6 +1,10 @@
 <div class="card" style="margin-top: 40px;">
     <div class="card-header">
         <h2>Todos os Produtos</h2>
+        <select class="float-end" style="padding: 5px; border-radius: 5px;">
+            <option value="">Marcas</option>
+        
+        </select>
     </div>
     <div class="card-body">
         <div class="row">
