@@ -19,10 +19,11 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
             <div class="col-12 col-md-4">
                 <img src="<?=$img?><?=$dadosProduto->imagem?>" class="w-100" alt="<?=$dadosProduto->nome?>">
             </div>
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 d-flex flex-column">
                 <p><strong>Dados do Produto:</strong></p>
                 <?=$dadosProduto->descricao?>
 
+                <div class="mt-auto">
                 <p class="float-start valor">
                     R$ <?=number_format($dadosProduto->valor, 2, ",", ".")?>
                 </p>
@@ -31,6 +32,7 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
                         <i class="fas fa-plus"></i> Adicionar ao carrinho
                     </a>
                 </p>
+                </div>
             </div>
         </div>
     </div>
