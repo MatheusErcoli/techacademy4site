@@ -74,8 +74,6 @@ class Carrinho {
                 $consultaItem->bindParam(":id_produto", $produto["id"]);
                 $consultaItem->bindParam(":quantidade", $produto["qtde"]);
                 $consultaItem->bindParam(":preco_unitario", $produto["valor"]);
-                $consultaItem->execute();
-
                 if(!$consultaItem->execute()){
                     return 0; // erro ao salvar item do pedido
                 }
