@@ -15,31 +15,31 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
 
 <div class="card" style="margin-top: 40px;">
     <div class="card-header">
-         <h2><?= $categoria->nome ?? "Categoria inválida!" ?></h2>
+            <h2><?= $categoria->nome ?? "Categoria inválida!" ?></h2>
     </div>
     <div class="card-body">
         <div class="row">
 
             <div class="row mt-4">
-    <?php if(empty($produtos)): ?>
-        <h4 class="text-center">Nenhum produto encontrado nesta categoria.</h4>
-    <?php else: ?>
-        <?php foreach($produtos as $p): ?>
-            <div class="col-md-3 mb-4">
-                <div class="card text-center">
-                    <img src="<?= $img . $p->imagem ?>" class="card-img-top" alt="<?= $p->nome ?>">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $p->nome ?></h5>
-                        <p class="card-text">R$ <?= number_format($p->valor, 2, ",", ".") ?></p>
-                        <a href="produto/detalhes/<?= $p->id_produto ?>" class="btn btn-formulario">
-                            <i class="fas fa-search"></i> Detalhes
-                        </a>
-                    </div>
-                </div>
+                <?php if (empty($produtos)): ?>
+                    <h4 class="text-center">Nenhum produto encontrado nesta categoria.</h4>
+                <?php else: ?>
+                    <?php foreach ($produtos as $p): ?>
+                        <div class="col-md-3 mb-4">
+                            <div class="card text-center">
+                                <img src="<?= $img . $p->imagem ?>" class="card-img-top" alt="<?= $p->nome ?>">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $p->nome ?></h5>
+                                    <p class="card-text">R$ <?= number_format($p->valor, 2, ",", ".") ?></p>
+                                    <a href="produto/detalhes/<?= $p->id_produto ?>" class="btn btn-formulario">
+                                        <i class="fas fa-search"></i> Detalhes
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
-</div>
 
 
         </div>
