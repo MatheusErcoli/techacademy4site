@@ -1,4 +1,4 @@
-<div class="card" style="margin-top: 40px;">
+<div class="card mt-5" >
     <div class="card-header">
         <h2>Todos os Produtos</h2>
         <select class="float-end" style="padding: 5px; border-radius: 5px;">
