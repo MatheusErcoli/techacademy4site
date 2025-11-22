@@ -5,7 +5,7 @@ $servidor = $_SERVER['SERVER_NAME'];
 $diretorioScript = dirname($_SERVER['SCRIPT_NAME']); 
 $urlSomar = $protocolo . '://' . $servidor . $diretorioScript . '/somar.php';
 ?>
-<div class="card" style="margin-top: 40px;">
+<div class="card mt-5" >
     <div class="card-header">
         <div class="float-start">
         <h2>Carrinho de Compras</h2>
