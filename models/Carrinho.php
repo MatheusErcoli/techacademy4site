@@ -98,7 +98,6 @@ class Carrinho {
                 }
             }
             if (!empty($semEstoqueNomes)) {
-                // mostrar alerta simples e voltar para o carrinho
                 $lista = implode("\\n - ", $semEstoqueNomes);
                 echo "<script>alert('Produto(s) sem estoque: \\n+ - $lista');window.location.href='carrinho/index';</script>";
                 return;
