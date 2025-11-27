@@ -86,6 +86,23 @@ class Carrinho {
     }
      public function finalizar(){
         if(isset($_SESSION["cliente"]["id"])){
+            // Verificar estoque usando a function do banco via model Produto
+            require_once __DIR__ . '/../models/Produto.php';
+            $produtoModel = new Produto($this->pdo);
+            $semEstoqueNomes = [];
+            foreach ($_SESSION["carrinho"] as $item) {
+                $idProduto = $item["id"];
+                $tem = $produtoModel->verificarEstoque($idProduto); // 1 ou 0
+                if ($tem === 0) {
+                    $semEstoqueNomes[] = $item['nome'];
+                }
+            }
+            if (!empty($semEstoqueNomes)) {
+                // mostrar alerta simples e voltar para o carrinho
+                $lista = implode("\\n - ", $semEstoqueNomes);
+                echo "<script>alert('Produto(s) sem estoque: \\n+ - $lista');window.location.href='carrinho/index';</script>";
+                return;
+            }
             // Processar preferência do Mercado Pago
             \MercadoPago\SDK::setAccessToken("APP_USR-2396278221985791-111214-c9fb4686f4db392642ecef5d5aa7f40c-1700403052");
             

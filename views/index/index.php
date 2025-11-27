@@ -1,4 +1,4 @@
-<div class="card" style="margin-top: 40px;">
+<div class="card mt-5" >
     <div class="card-header">
         <h2>Produtos em destaque</h2>
     </div>

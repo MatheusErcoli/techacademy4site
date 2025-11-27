@@ -13,7 +13,7 @@ $dadosProduto = json_decode(file_get_contents($urlProduto));
 ?>
 
 
-<div class="card" style="margin-top: 40px;">
+<div class="card mt-5" >
     <div class="card-header">
             <h2><?= $categoria->nome ?></h2>
     </div>
