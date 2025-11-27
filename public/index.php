@@ -53,8 +53,8 @@ session_start();
       <?php
         // Carregamento mínimo e seguro: evita avisos se a API estiver ausente ou retornar JSON inválido.
         $urlCategoria = "http://localhost/techAcademy4/public/apis/categoria.php";
-        $respostaCategoria = @file_get_contents($urlCategoria);
-        $dadosDecodificados = json_decode($respostaCategoria);
+        $Categoria = @file_get_contents($urlCategoria);
+        $dadosDecodificados = json_decode($Categoria);
 
         if ($dadosDecodificados && (is_array($dadosDecodificados) || is_object($dadosDecodificados))) {
           // Converter para array para que foreach sempre funcione (objeto vira array de um elemento)

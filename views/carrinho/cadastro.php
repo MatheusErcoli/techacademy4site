@@ -168,16 +168,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const campoCidade = document.getElementById("cidade");
     const campoEstado = document.getElementById("estado");
 
-    // Máscara simples de CEP
     campoCep.addEventListener("input", function() {
-        let cep = campoCep.value.replace(/\D/g, ""); // remove tudo que não é número
+        let cep = campoCep.value.replace(/\D/g, ""); 
         if (cep.length > 5) {
             cep = cep.slice(0, 5) + "-" + cep.slice(5, 8);
         }
         campoCep.value = cep;
     });
 
-    // Busca automática de endereço via ViaCEP
+
     campoCep.addEventListener("blur", async function() {
         const cep = campoCep.value.replace(/\D/g, "");
         if (cep.length === 8) {

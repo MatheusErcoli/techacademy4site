@@ -9,11 +9,11 @@ class CategoriaController {
         require_once "../models/Produto.php";
         require_once "../models/Categoria.php";
 
-        $produtoModel = new Produto($pdo);
-        $categoriaModel = new Categoria($pdo);
+        $produto = new Produto($pdo);
+        $categoria = new Categoria($pdo);
 
-        $produtos = $produtoModel->getByCategoria($id_categoria);
-        $categoria = $categoriaModel->getById($id_categoria);
+        $produtos = $produto->getByCategoria($id_categoria);
+        $categoria = $categoria->getById($id_categoria);
 
         require "../views/categoria/index.php";
     }

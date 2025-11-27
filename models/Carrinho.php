@@ -58,7 +58,7 @@ class Carrinho {
     }
 
     public function salvarPedido($preference_id){
-        $sqlPedido = "insert into pedido values (null, :id_cliente, null, now(), :preference_id)";
+        $sqlPedido = "insert into pedido (id_pedido, id_cliente, id_funcionario, data_pedido, preference_id, ativo) values (null, :id_cliente, null, now(), :preference_id, 1)";
         $consulta = $this->pdo->prepare($sqlPedido);
         $consulta->bindParam(":id_cliente", $_SESSION["cliente"]["id"]);
         $consulta->bindParam(":preference_id", $preference_id);
@@ -86,7 +86,6 @@ class Carrinho {
     }
      public function finalizar(){
         if(isset($_SESSION["cliente"]["id"])){
-            
             // Processar preferência do Mercado Pago
             \MercadoPago\SDK::setAccessToken("APP_USR-2396278221985791-111214-c9fb4686f4db392642ecef5d5aa7f40c-1700403052");
             
